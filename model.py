@@ -4,8 +4,6 @@ from datetime import datetime
 
 
 class DogBase(SQLModel):
-    id = int = Field(primary_key=True)
-
     name: str = Field(min_length=2, max_length=20)
     size: str = Field(min_length=2, max_length=20)
     dangerous: bool = Field(default=False)
