@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from db import  SessionDep, create_all_tables
 from sqlmodel import select
 from model import DogBase,DogId, DogUpdate
-
+from operations.operations_dog import DogUpdate
 app = FastAPI()
 
 
