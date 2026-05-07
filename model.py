@@ -1,21 +1,37 @@
 from sqlmodel import Field, SQLModel
-
+from typing import Optional
 from datetime import datetime
 
 
-class Dog(SQLModel, table = True):
-    __tablename__ = "Dogs"
-id = int= Field(primary_key=True)
+class DogBase(SQLModel):
+    id = int = Field(primary_key=True)
 
-name: str= Field()
-size: str= Field()
-dangerous: bool = Field()
-sterilized: bool = Field()
-breed: str = Field()
-
-created: datetime = Field(
+    name: str = Field(min_length=2, max_length=20)
+    size: str = Field(min_length=2, max_length=20)
+    dangerous: bool = Field(default=False)
+    sterilized: bool = Field(default=False)
+    breed: str = Field(min_length=2, max_length=20)
+    created: datetime = Field(
         default_factory=datetime.utcnow(),
         sa_column_kwargs={"server_default": "NOW()"}
     )
+
+
+class DogId(DogBase, table=True):
+    id:Optional[int] = Field(default=None, primary_key=True)
+
+
+
+class DogUpdate(SQLModel):
+    name: str = Field(min_length=2, max_length=20)
+    size: str = Field(min_length=2, max_length=20)
+    dangerous: bool = Field(default=False)
+    sterilized: bool = Field(default=False)
+    breed: str = Field(min_length=2, max_length=20)
+    created: datetime = Field(
+        default_factory=datetime.utcnow(),
+        sa_column_kwargs={"server_default": "NOW()"}
+    )
+
 
 
