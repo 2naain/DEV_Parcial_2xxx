@@ -5,6 +5,14 @@ from datetime import datetime
 
 class Dog(SQLModel, table = True):
     __tablename__ = "Dogs"
+id = int= Field(primary_key=True)
+
+name: str= Field()
+size: str= Field()
+dangerous: bool = Field()
+sterilized: bool = Field()
+breed: str = Field()
+
 
     created: datetime = Field(
         default_factory=datetime.utcnow(),
