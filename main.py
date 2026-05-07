@@ -37,3 +37,4 @@ async def update_dog(id: int,dog: DogUpdate,session: Session):
 
 
 
+endpoint showalldogs
