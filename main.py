@@ -18,3 +18,9 @@ async def root():
 @app.get("/hello/{name}")
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
+
+
+3endpoint añadir registro a ala tabla
+endpoint modificar
+endpoint recuerar por #id
+endpoint showalldogs

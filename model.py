@@ -13,8 +13,9 @@ dangerous: bool = Field()
 sterilized: bool = Field()
 breed: str = Field()
 
-
-    created: datetime = Field(
+created: datetime = Field(
         default_factory=datetime.utcnow(),
         sa_column_kwargs={"server_default": "NOW()"}
     )
+
+
